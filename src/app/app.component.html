@@ -6,20 +6,14 @@
   <div class="container">
     <h2>Backlog</h2>
 
-    <mat-card
-      cdkDropList
-      id="todo"
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList, inProgressList]"
-      (cdkDropListDropped)="drop($event)"
-       class="list">
+    <mat-card cdkDropList id="todo" #todoList="cdkDropList" [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList, inProgressList]" (cdkDropListDropped)="drop($event)" class="list">
       <p class="empty-label" *ngIf="todo.length === 0">Empty list</p>
       <app-task (edit)="editTask('todo', $event)" *ngFor="let task of todo" cdkDrag [task]="task"></app-task>
     </mat-card>
-<!-- Mit cdkDropList können wir später Aufgaben in dem Element ablegen. -->
-<!-- cdkDropListData – Eingabe der Drop-down-Liste, mit der das Datenarray angegeben werden kann -->
-<!-- cdkDropListConnectedTo: verweist auf die anderen cdkDropLists,
+    <!-- Mit cdkDropList können wir später Aufgaben in dem Element ablegen. -->
+    <!-- cdkDropListData – Eingabe der Drop-down-Liste, mit der das Datenarray angegeben werden kann -->
+    <!-- cdkDropListConnectedTo: verweist auf die anderen cdkDropLists,
   git mit denen der aktuelle cdkDropList verbunden ist. In den Einstellungen geben wir an,
   in welche anderen Listen wir Elemente aufnehmen können. -->
 
@@ -46,3 +40,13 @@
     </mat-card>
   </div>
 </div>
+<div class="content-wrapper">
+  <button (click)="newTask()" mat-button>
+    <mat-icon>add</mat-icon> Add Task
+  </button>
+
+  <div class="container-wrapper">
+    <div class="container">
+      ...
+    </div>
+  </div>
